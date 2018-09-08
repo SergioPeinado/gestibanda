@@ -1,0 +1,197 @@
+/*!
+ * Start Bootstrap - Scrolling Nav HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ 
+@media(min-width:992px) {
+    .navbar {
+        padding: 15px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+	
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+@media (max-width: 992px) {
+	.navbar-brand img{
+		-webkit-transition: all 1s ease; /* Safari and Chrome */
+		-moz-transition: all 1s ease; /* Firefox */
+		-o-transition: all 1s ease; /* IE 9 */
+		-ms-transition: all 1s ease; /* Opera */
+		transition: all 1s ease;
+		width: 100px !important;
+		padding-top: 7px;
+	}
+	/* Modificación para que haga el collapse a los 992px y no a los 768px */
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+	/* Estilo para aumentar tamaño de barra y botón */
+	.navbar {
+        padding: 9px 0;
+    }
+	.navbar-toggle {
+		padding: 15px;
+	}
+	.navbar-brand img{
+		width: 130px !important;
+		margin-top: 0px !important;
+		padding-top: 3px !important;
+	}
+}
+
+.navbar-nav{
+	margin-top: 4px;
+	margin-left: 0px;
+	font-family:Verdana;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+
+.main_content {
+	margin-top: 100px;
+}
+
+.navbar-brand img{
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+	width: 130px;
+	margin-top: -5px;
+}
+
+.navbar-brand{
+	padding-top: 0px;
+}
+
+.navbar-right {
+	margin-right: 12px;
+}
+
+.top-nav-collapse img {
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+	width:100px;
+	margin-top: 0px;
+	padding-top: 3px;
+}
+
+.sombra1 {
+	webkit-box-shadow: 5px 8px 9px 0px rgba(3,35,63,1);
+	-moz-box-shadow: 5px 8px 9px 0px rgba(3,35,63,1);
+	box-shadow: 5px 8px 9px 0px rgba(3,35,63,1);
+}
+
+.sombra2 {
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+	webkit-box-shadow: 5px 8px 9px 0px rgba(3,35,63,0.5);
+	-moz-box-shadow: 5px 8px 9px 0px rgba(3,35,63,0.5);
+	box-shadow: 5px 8px 9px 0px rgba(3,35,63,0.5);
+}
+
+.container-fluid{
+	margin-left: 20px;
+}
+
+.navbar-right a.messages{
+background:url(../images/comment.png) no-repeat right;
+padding-right:20px;
+}
+.navbar-right a.logout{
+background:url(../images/user_logout.png) no-repeat right;
+padding-right:20px;
+}
+
+.dropdown-menu li a{
+	padding: 10px;
+	font-size: 14px;
+}
+
+.dropdown-menu li a:hover{
+	background: #ff8800;
+	-ms-transition:background-color 0.3s ease-in-out 0s !important;
+	transition: background-color 0.3s ease-in-out 0s !important;
+}
+
+/* Que aparezca el navbar-toggle antes de lo previsto */
+@media (max-width: 1250px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+}

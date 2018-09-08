@@ -1,0 +1,17 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #E1E2FF;
+}
+
+.btn-editsuccess{
+    color: #264D26;
+    background-color: #92C992;
+    border-color: #298029;
+}
+
+.btn-editdanger{
+    color: #301F1F;
+    background-color: #F68888;
+    border-color: #298029;
+}

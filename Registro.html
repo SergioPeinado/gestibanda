@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+<head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/style.css?201602101015" /> 
+    <!--<link rel="stylesheet" type="text/css" href="css/menu_style.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/jquery.jgrowl.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/modificacionBootstrap.css?201602091007">
+    <link rel="stylesheet" href="css/jquery.qtip.css">
+    <link rel="stylesheet" href="css/scrolling-nav.css">
+    <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/autocomplete.css">
+  
+	
+	
+	<script language="JavaScript"> 
+	function envia(pag){ 
+		document.form1.action= pag 
+		document.form1.target="_self"
+		document.form1.submit() 
+	} 
+
+	function mostrarOcultarTablas(id){
+		mostrado=0;
+		elem = document.getElementById(id);
+		if(elem.style.display=='none'){
+			mostrado=1;
+			elem.style.display='block';
+		}
+		if(mostrado!=1){
+			elem.style.display='none';
+		}
+	}
+	</script>
+
+</head>
+
+<body >
+	
+	
+	<form name="form1" id="form1" method="post" enctype="multipart/form-data" action="Registro.php?opcion=2" >
+		<div class="row" >
+			<div class="col-md-3"></div>
+		<div class="col-md-6 registrouserbanda" style="background: #dddddd">			
+				<div class="row">
+				<h3>Datos de la banda</h3>
+				</div>
+				<div class="row">
+				<div class="col-md-6">
+					<label for="BNombre">Nombre de la banda <span class="obligatorio">(*)</span></label>
+					<input type="text" class="form-control" id="BNombre" name="BNombre" placeholder="Nombre de la banda" required>												
+				</div>
+				<div class="col-md-6">
+					<label for="Bestilo">Estilo</label>
+					<select class="form-control" id="Bestilo" name="Bestilo" required>
+					<option>-- Seleccionar --</option>
+					<option>Agrupacion Musical</option>
+					<option>Cornetas y tambores</option>
+					<option>Banda de musica</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="BEMAIL">E-Mail <span class="obligatorio">(*)</span></label>
+					<input type="email" class="form-control" id="BEMAIL" name="BEMAIL" placeholder="E-mail" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="E-Mail" required >
+				</div>
+				<div class="col-md-6">
+					<label for="BTelefono">Teléfono <span class="obligatorio">(*)</span></label>
+					<input type="tel" pattern="[0-9]{9}" maxlength="9" class="form-control" id="BTelefono" name="BTelefono" placeholder="Teléfono" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="BDireccion">Dirección</label>
+					<input type="text" class="form-control" id="BDireccion" name="BDireccion" placeholder="Dirección" >
+				</div>
+				<div class="col-md-6">
+					<label for="BCP">CP</label>
+					<input type="text" class="form-control" id="BCP" name="BCP" placeholder="Código postal" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Bprovincia">Provincia </label>
+					<select class="form-control" id="Bprovincia" name="Bprovincia">
+					<option>-- Seleccionar --</option>
+					<?php
+						$sql = "SELECT * FROM provincias ORDER BY provincia ASC";
+						$rs = mysql_query($sql, $con);
+						while ($fila=mysql_fetch_row($rs)){
+							if($fila[1]==$provincia)
+								echo "<option selected>".$fila[1]."</option>";
+							else
+								echo "<option>".$fila[1]."</option>";
+						}
+					?>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<label for="Bpoblacion">Población </label>
+					<select class="form-control" id="Bpoblacion" name="Bpoblacion">
+					<option>-- Seleccionar --</option>
+					<option>jaen</option>
+					<option>Cordoba</option>
+					<option>Sevilla</option>
+					<option>prueba</option>
+					<!--<?php
+						if($provincia!=""){
+							$sql="SELECT municipio FROM poblaciones AS PO, provincias AS PR WHERE PR.provincia='".$provincia."' AND PR.id=PO.provincia ORDER BY PO.municipio";
+							$rs = mysql_query($sql, $con);
+							while ($fila=mysql_fetch_row($rs)){
+								if($fila[0]==$poblacion)
+									echo "<option selected>".$fila[0]."</option>";
+								else
+									echo "<option>".$fila[0]."</option>";
+							}
+						}													
+					?>-->
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Bweb">Página web</label>
+					<input type="text" class="form-control" id="Bweb" name="Bweb" placeholder="Dirección Web">
+				</div>
+			</div>
+			<div class="row">
+				<h3 >Datos del Componente</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for="BNombreC">Nombre <span class="obligatorio">(*)</span></label>
+						<input type="text" class="form-control" id="BNombreC" name="BNombreC" placeholder="Nombre" required>												
+					</div>
+					<div class="col-md-6">
+						<label for="BApellidoC">Apellidos</label>
+						<input type="text" class="form-control" id="BApellidoC" name="BApellidoC" placeholder="Apellidos" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+							<label for="BDniC">DNI <span class="obligatorio">(*)</span></label>
+							<input type="text" class="form-control" id="BDniC" name="BDniC" placeholder="DNI" maxlength="9" required>
+					</div>
+					<div class="col-md-6">
+						<label for="BEmailC">E-Mail <span class="obligatorio">(*)</span></label>
+						<input type="email" class="form-control" id="BEmailC" name="BEmailC" placeholder="Email usuario" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="E-Mail" required>												
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+							<label for="BSeccionC">Sección <span class="obligatorio">(*)</span></label>
+							<input type="text" class="form-control" id="BSeccionC" name="BSeccionC" placeholder="Seccion" >
+					</div>
+					<div class="col-md-6">
+						<label for="CPass1">Contraseña <span class="obligatorio">(*)</span></label>
+						<input type="password" class="form-control" id="CPass1" name="CPass1" placeholder="******" value="" required>												
+					</div>
+				</div>
+				
+			
+			<div class="row" style="margin-top:25px">
+				<div class="col-md-12">
+					<center><button type="submit" id="bt_registro" class="btn btn-primary btn-rounded">Enviar datos</button></center> <br>
+					<center><a class="btn btn-default btn-rounded" href="index.php">Volver</a></center>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		</form>
+	</div>
+
+<!--<script>
+$(document).ready(function () {
+	$("#Tprovincia").on("change",function (e) {
+		cargaPoblaciones($("#Tprovincia option:selected").val(),true);
+    });
+	
+	function cargaPoblaciones(provincia,asincrona){
+		$("#Tpoblacion").empty();
+		$.ajax({
+			type: "POST",
+			async: asincrona,   
+			url: "Empresa.php",
+			data: {opcion:4,provincia:provincia},
+			dataType: "json",
+			success:  function(respuesta){  
+				$.each(respuesta, function(i, item) {
+					$("#Tpoblacion").append("<option>"+respuesta[i]+"</option>");
+				})
+			},
+		});
+	}
+});
+</script>
+
+[if lte IE 9]>
+<script src="assets/js/ie.js"></script>
+<![endif]-->
+
+</body>

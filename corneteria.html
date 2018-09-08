@@ -1,0 +1,320 @@
+<!--Ventanas modales-->
+<!--Inicio ventana modal nuevo-->
+<div id="modalNuevo" class="modal fade">
+    <div class="modal-dialog modal-lg" >
+	<form method="post" id="form1" name="form1" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal_titulo"><? echo $TituloCabecera?></h4>
+            </div>
+            <div class="modal-body">				
+				<div class="row" id="erroresNuevoPriv"></div>
+				<div class="masthead">
+					<nav>
+						<ul id="tabs" class="nav nav-tabs" data-tabs="tabs" style="width: 100%">
+							<li class="active"><a href="#datos" data-toggle="tab">Ficha</a></li>
+<!--						<li><a href="#datoscontables" data-toggle="tab">Datos contables</a></li>
+						    <li><a href="#formasdecobro" data-toggle="tab">Formas de cobro</a></li>
+							<li><a href="#comisiones" data-toggle="tab">Comisiones</a></li>
+						<li><a href="#foto" data-toggle="tab">Imagen</a></li>-->	
+						</ul>
+					</nav>
+				</div>
+				<div id="my-tab-content" class="tab-content">
+
+				<!-- DATOS -->
+				<?php if($_SESSION['privilegios']<3) {?>
+						<div class="tab-pane active" id="datos">
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="nombre" class="control-label">Nombre</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" class="form-control" maxlength="40" id="C1" name="C1"  required>
+								</div>
+								<div class="col-md-1">
+									<label for="nombre" class="control-label">Apellido </label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" class="form-control" maxlength="200" id="C2" name="C2" required>
+								</div>
+							</div>
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="direccion" class="control-label">DNI</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="C3" name="C3" maxlength="50">
+								</div>
+								<div class="col-md-1">
+									<label for="direccion" class="control-label">email</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="C4" name="C4" maxlength="50">
+								</div>
+							</div>
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="pass" class="control-label">Contraseña</label>
+								</div>
+								<div class="col-md-4">
+									<input type="password" class="form-control" id="C6" name="C6" maxlength="50">
+								</div>
+									<div class="col-md-1">
+										<label for="direccion" class="control-label">privilegios</label>
+									</div>
+									<div class="col-md-4">
+										<select class="form-control" id="C20" name="C20" required >
+											
+												 <?php
+												 $sql = "SELECT * FROM privilegios ORDER BY nombre ASC";
+												 $rs = mysql_query($sql, $con);
+												 if(mysql_num_rows($rs)>0){
+													 while ($fila=mysql_fetch_row($rs)){ 
+														 echo "<option id='".$fila[0]."'>".$fila[1]."</option>";
+													 }
+												 }
+												?>
+										 </select>
+									</div>
+									<select class="form-control" id="C7" name="C7" style="visibility:hidden">
+										
+											 <?php
+											 $sql = "SELECT * FROM privilegios ORDER BY nombre ASC";
+											 $rs = mysql_query($sql, $con);
+											 if(mysql_num_rows($rs)>0){
+												 while ($fila=mysql_fetch_row($rs)){ 
+													 echo "<option id='".$fila[0]."'>".$fila[0]."</option>";
+												 }
+											 }
+											?>
+									 </select>
+							</div>			
+						</div>
+						<?php } else { ?>
+							<div class="tab-pane active" id="datos">
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="nombre"  class="control-label">Nombre</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" style="background:#FFFFFF;" class="form-control" maxlength="40" id="C1" name="C1"  readonly>
+								</div>
+								<div class="col-md-1">
+									<label for="nombre" class="control-label">Apellido </label>
+								</div>
+								<div class="col-md-4">
+									<input type="text"  style="background:#FFFFFF;" class="form-control" maxlength="200" id="C2" name="C2" readonly>
+								</div>
+							</div>
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="direccion" class="control-label">DNI</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text"  style="background:#FFFFFF;" class="form-control" id="C3" name="C3" maxlength="50" readonly>
+								</div>
+								<div class="col-md-1">
+									<label for="direccion" class="control-label">email</label>
+								</div>
+								<div class="col-md-4">
+									<input type="text" style="background:#FFFFFF;" class="form-control" id="C4" name="C4" maxlength="50" readonly>
+								</div>
+							</div>
+							<div class="row masespacio">
+								<div class="col-md-1">
+									<label for="pass" class="control-label">Contraseña</label>
+								</div>
+								<div class="col-md-4">
+									<input type="password"  style="background:#FFFFFF;" class="form-control" id="C6" name="C6" maxlength="50" readonly>
+								</div>
+									<div class="col-md-1">
+										<label for="direccion" class="control-label">privilegios</label>
+									</div>
+									<div class="col-md-4">
+										<input type="text"  style="background:#FFFFFF;" class="form-control" id="C7" name="C7" maxlength="50" readonly>
+									</div>
+							</div>			
+						</div>
+						<?php } ?>
+						<!-- /DATOS -->
+
+
+
+					
+				</div>
+            </div>        
+
+			<div class="modal-footer">
+				<?php if($_SESSION['privilegios']<3) {?>
+				<button type="submit" id="guardarRegistro" class="btn btn-success control-input">Guardar</button>
+				<?php } ?>
+				<button type="button" id="bt_cancelar" class="btn btn-default bt_cancelaModal control-input">Cancelar</button>
+			</div>
+		</div>
+		</form>
+    </div>
+</div>
+<!--Fin ventana modal nuevo-->
+
+
+
+<div id="modalresultado" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Aviso</h4>
+			</div>
+			<div class="modal-body">
+				<p id="res"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+  </div>
+</div>
+
+
+
+
+
+
+<div id="modalMensaje" class="modal fade" style="padding-top: 6%; padding-bottom: 6%">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Mensaje</h4>
+			</div>
+			<div class="modal-body">
+				<p id="texto"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div id="modalEliminar" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Eliminar registro</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro de que desea eliminar el registro?</p>
+            </div>        
+			<div class="modal-footer">
+				<button id="eliminaRegistro" class="btn btn-danger">Eliminar</button>
+				<button type="button" id="bt_cancelar" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			</div>
+		</div>
+    </div>
+</div>
+
+
+
+
+
+<div id="modalEliminarFoto" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Eliminar FOTO</h4>
+            </div>
+            <div class="modal-body">
+                <p>¿Está seguro de que desea eliminar la Imagen o Archivo?</p>
+            </div>        
+			<div class="modal-footer">
+				<button id="eliminaRegistroFoto" class="btn btn-danger">Eliminar</button>
+				<button type="button" id="bt_cancelar" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+			</div>
+		</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Start de main content -->
+<div class="main_content" style="width: 100%">
+<div id="resultado"></div>
+	<div class="container container-full">
+	  <h4 style="padding-top: 12px; padding-bottom: 5px"><? echo $TituloCabecera ?></h4>
+		<div class="row menu-acciones-bootstrap">
+			<div class="col-md-5">
+				<div class="col-md-2 menosmargen">
+					<label class="control-label">Buscar</label>
+				</div>
+				<div class="col-md-10 menosmargen">
+					<div class="input-group" style="width: 100%;">
+					<input id="TPalabraabuscar" class="form-control control-input" style="width: 85%;" aria-describedby="basic-addon2"/>
+					<button class="input-group-addon btn-clear-busqueda" id="basic-addon2" style="height: 34px; width: 34px" onClick="borrarBuscar();" title="Borra la búsqueda">X</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 menosmargen" style="text-align: right">Reg.:
+				<label class="contador control-label"></label>
+			</div>
+			
+			
+			
+			<?php if($_SESSION['privilegios']<3) {?>
+			<div class="col-md-1 menosmargen">
+				<button type="button" id="bt_nuevo" class="btn btn-success pull-right control-label-1" style="width: 100%; height: 34px" title="Añadir nuevo"><i class="fa fa-plus-circle"></i></button>
+			</div>
+			<?php } else { echo '<div class="col-md-1"></div>'; } ?>
+			
+		</div>
+		
+		
+		<div class="row menu-acciones-bootstrap" style="width: 100%">
+			<div id="cargandoListado"><center><img style='width:25px; margin-bottom: 20px' src='images/cargando.gif' /></center></div>
+			<div id="cargaListado"></div>
+		</div>
+	</div>
+</div>
+<!--end of main content-->
+<div id="mensaje" class="jGrowl bottom-left"></div>
+
+<script>
+	$(document).ready(function () {
+		$("#C20").on("change",function (e) {
+			cargaId($("#C20 option:selected").val(),true);
+			
+		});
+		
+		function cargaId(estado,asincrona){
+			$("#C7").empty();
+			$.ajax({
+				type: "POST",
+				async: asincrona,   
+				url: "corneteria.php",
+				data: {opcion:5,estado:estado},
+				dataType: "json",
+				success:  function(respuesta){  
+					$.each(respuesta, function(i, item) {
+						$("#C7").append("<option>"+respuesta[i]+"</option>");
+					})
+				},
+			});
+		}
+	
+	});
+
+	
+	
+	
+	</script>
+
+
+

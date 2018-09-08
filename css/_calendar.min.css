@@ -1,0 +1,142 @@
+/*  *{margin:0;padding:0;font-family:"Ubuntu";-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box} */
+
+.calendario,.calendario * {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; }
+.calendario {padding: 0em;color: #7e7975;font-weight: 300; margin: 3px; }
+.calendario.small {font-size: 0.7em;font-weight: 100;}
+
+.calendario-month-view {display: block;font-size: 2.3em;line-height:1em;-webkit-transition: all 0.5s; -moz-transition: all 0.5s;-o-transition: all 0.5s;transition:0.5s all;position:relative;text-align:center; background: #EFEFEF}
+.calendario-month-view, .calendario-month-view * {-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none; margin: 0px;}
+.calendario-month-view-arrow {width: 20%; position: absolute; top: 0px; color: transparent;cursor: pointer; color: gray; }
+.calendario-month-view-arrow:hover {background: #1AC992;}
+.calendario.spec-day .calendario-month-view-arrow {	display: none;}
+
+[data-dir=left] {left:0;}
+[data-dir=right] {right: 0;}
+
+
+.letrasDay {display: block;height:20px;line-height:20px;text-align:center;}
+.letrasDay div {width: 14.28%;margin: 0 !important;padding:0 !important;position: relative;display: block;float:left;color: white;border:solid #fff;border-width:1px 0 0 1px;overflow:hidden;}
+
+.calendario:hover .calendario-month-view {background: #DFDFDF !important;}
+.calendario:hover .calendario-month-view-arrow:hover {color: white; }
+.calendario-holder {width:100%;height: 120px;position: relative;overflow: hidden; background: #EFEFEF}
+.calendario-grid {width:100%;height: 100%;position: absolute;top: 0;}
+.calendario.spec-day .calendario-grid {display: none;}
+
+.calendario-day {width: 14.28%;margin: 0 !important;padding:0 !important;height: 20px;position: relative;display: block;float:left;color: #000000;border:solid #fff;border-width:1px 0 0 1px;overflow:hidden;}
+.calendario-day.have-events {cursor: pointer;}
+
+.calendario-day:nth-child(7n),.letrasDay div:nth-child(7n) {border-right: 0;background: gray;}
+.calendario-day:nth-child(7n+1),.letrasDay div:nth-child(7n+1) {border-left: 0;}
+.calendario-day.other-month {color: #D2D2D2;}
+.calendario .calendario-grid .calendario-day.this-day {background: none; color: white; background: #1AC992;}
+.calendario .calendario-grid .calendario-day.select-day {background: none; color: white; background: #00A3DD;}
+.calendario .calendario-grid .calendario-day.have-events:hover {background: #BAE0EE;}
+.calendario .calendario-grid .other-month.have-events:hover {color: white;}
+
+.calendario-day .date-holder {font-size: 1.4em;position: absolute;right:35%;bottom:20%;}
+.calendario-day .event-notif-holder {
+	height: 90%;
+	height: -moz-calc(100% - 10px);
+	height: -webkit-calc(100% - 10px);
+	height: calc(100% - 10px);
+	left:5%;
+	left: -moz-calc(0px + 5px);
+	left: -webkit-calc(0px + 5px);
+	left: calc(0px + 5px);
+	top:5%;
+	top: -moz-calc(0px + 5px);
+	top: -webkit-calc(0px + 5px);
+	top: calc(0px + 5px);
+	position: absolute;
+	width: 0.25em;
+}
+.calendario-day .event-notif {
+	height: 1em;
+	background: green;
+	width: 0.7em;
+	margin: 1px 0px;
+}
+
+.calendario-specific {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	color: gray;
+	padding: 1em;
+}
+.calendario.spec-day .calendario-specific {
+	display: block;
+}
+.calendario-specific .specific-day {
+	width: 30%;
+	display: inline-block;
+	padding-bottom: 1em;
+	cursor: pointer;
+}
+.calendario-specific .specific-day:hover {
+	background: gray;
+	color: white;
+}
+
+.specific-day-info[i=day] {
+	font-size: 3em;
+	text-align: center;
+}
+.specific-day-info[i=month] {
+	font-size: 2em;
+	line-height: 0.5em;
+	text-align: center;
+}
+.calendario-specific .specific-day-scheme {
+	display: inline-block;
+	height: 100%;
+	margin-left: 1em;
+	width: calc(70% - 1em);
+	width: -webkit-calc(70% - 1em);
+	overflow-y: scroll;
+	text-align: left;
+}
+.calendario-specific .specific-day-scheme::-webkit-scrollbar {
+	width: 10px;
+}
+.calendario-specific .specific-day-scheme::-webkit-scrollbar-track {
+	background: transparent;
+}
+.calendario-specific .specific-day-scheme::-webkit-scrollbar-thumb {
+	background: rgb(34,34,34);
+}
+
+.specific-day-scheme .specific-day-scheme-event {
+	padding: 0.5em;
+	margin: 0.5em 0;
+}
+.specific-day-scheme .specific-day-scheme-event:first-child {
+	margin: 0;
+}
+.specific-day-scheme .specific-day-scheme-event:last-child {
+	margin-bottom: 0;
+}
+
+.calendario .specific-day-scheme-event h1 {
+	margin: 0;
+	font-size: 1.1em;
+	line-height: 1;
+	font-weight: 400;
+}
+.calendario .specific-day-scheme-event p[data-role=dur] {
+	margin: 0;
+}
+.calendario .specific-day-scheme-event p[data-role=loc] {
+	margin: 0;
+	line-height: 1;
+}
+[data-color=normal] {
+	background-color: #00A3DD;
+}
+[data-color=normal] select,[data-color=normal] .calendario-month-view, [data-role=sub] nav a[data-color=normal], [data-color=normal] .checkbox-outer, [data-color=normal] .radio-outer,[data-color=normal] textarea,input:not([type=file])[data-color=normal], [data-color=normal] input:not([type=file]),[data-color=normal] .calendario-day,[data-color=normal] button, button[data-color=normal],[data-color=normal] a[data-role=button], a[data-role=button][data-color=normal],[data-color=normal] input[type=submit],[data-color=normal].accordion li, [data-color=normal].list li, [data-color=normal].olist li, [data-color=normal] .specific-day,[data-color=normal] .chart-bar,[data-color=normal] .calendario-specific .specific-day-scheme-event {
+	background-color: #EFEFEF;
+}

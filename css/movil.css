@@ -1,0 +1,128 @@
+
+/*Estilos para adaptar las letras al verlo en un movil*/
+@media screen and (max-device-width: 375px)  {
+
+/*
+	#bt_excel,#bt_imprimir,#bt_nuevo,#guardarRegistro{
+		height:100px !important;
+		font-size: 50px !important;
+	}
+	.bt_cancelar {
+		height:100px !important;
+		font-size: 50px !important;
+	}
+
+	h4 {
+		height:80px !important;
+		font-size: 40px !important;
+		padding-top: 10px;
+ 		color:#009900;
+	}
+	.table {
+		height:80px !important;
+		font-size: 30px !important;
+	}
+	.form-control {
+		height:80px !important;
+		font-size: 30px !important;
+  	}
+	.control-label{
+		height:80px !important;
+		font-size:30px !important;
+	}
+
+	.control-input {
+		height:80px !important;
+		font-size: 30px !important;
+  	}
+	input,textarea,select,a {
+		height:80px !important;
+		font-size: 30px !important;
+		padding-top: 0px;
+	}
+	a {
+		height:60px !important;
+		font-size: 40px !important;
+		padding-top: 1px;
+	}
+
+	.input-group-addon {
+		width:30% !important;
+	}
+	#timagen {
+		height:70px !important;
+		font-size: 50px !important;
+		padding-top: 12px;
+	}
+	#bt_verFoto {
+		height:70px !important;
+		font-size: 50px !important;
+		padding-top: 12px;
+	}
+	#bt_eliminarFoto {
+		height:80px !important;
+		font-size: 60px !important;
+		padding-top: 12px;
+	}
+
+	.btn {
+		height:100px !important;
+		font-size: 50px !important;
+	}
+	.cambio {
+		font-size: 40px !important;
+	}
+	.date {
+		width:50% !important;
+		font-size: 50px !important;
+	}
+
+
+
+
+
+	.main_content {
+		height:90px !important;
+		font-size: 50px !important;
+  	}
+
+*/
+	body {
+		font-size:50px !important;
+	}
+	.btn {
+		font-size: 29px !important;
+	}
+	h4 {
+		height:80px !important;
+		font-size: 40px !important;
+/*		padding-top: 10px;
+ 		color:#009900;
+*/	}
+	.table {
+		font-size: 30px !important;
+	}
+	.control-label{
+		font-size:30px !important;
+	}
+
+	.control-input {
+		font-size: 30px !important;
+  	}
+	.form-control {
+		font-size: 45px !important;
+  	}
+	input,textarea,select,a {
+		height:80px !important;
+		font-size: 40px !important;
+		padding-top: 0px;
+	}
+
+	#bt_excel,#bt_imprimir,#bt_nuevo,#guardarRegistro,#bt_cancelar{
+		height:100px !important;
+		font-size: 40px !important;
+	}
+	
+
+
+}
